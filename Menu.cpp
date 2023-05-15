@@ -2,50 +2,78 @@
 
 
 menu :: menu(){
-    is_on_menu_appearing_stage = 1;
-    is_on_menu_delaying_stage = 0;
-    count_frames = 0;
-    curently_rendering_pic = iWelcome;
+    cur_rendering_pic = istart1;
 }
+void menu :: set_pic(indices_ id){
+    cur_rendering_pic = id;
+}
+void menu :: menu_handle_events(SDL_Event event, bool &menu_stage, bool &solo_game_stage, bool &tank_need_create, bool &play_with_bot_stage, bool &running){
+    if(!menu_stage) return ;
+    int _x, _y;
+    Uint32 mouseState = SDL_GetMouseState(&_x, &_y);
 
-bool menu ::  _is_on_menu_appearing_stage(){
-    return is_on_menu_appearing_stage;
-}
-
-bool menu :: _is_on_menu_delaying_stage(){
-    return is_on_menu_delaying_stage;
-}
-
-void menu :: menu_pre_render(){
-    if(!is_on_menu_delaying_stage) return ;
-    if(++count_frames > 5) curently_rendering_pic = iWelcome;
-    if(count_frames > 30) is_on_menu_appearing_stage = is_on_menu_delaying_stage = 0;
-    return ;
-}
-void menu :: menu_handle_events(SDL_Event event){
-    if(is_on_menu_delaying_stage) return ;
-    if(!is_on_menu_appearing_stage) return ;
-    if(curently_rendering_pic == iWelcome){
-        if(event.type == SDL_MOUSEBUTTONDOWN){
-            int _x = event.button.x;
-            int _y = event.button.y;
-            if (600 <= _x && _x <= 600+240 && 550 <= _y && _y <= 550+125)  curently_rendering_pic = iWelcome2;
-        }
-    }
-    else if(curently_rendering_pic == iWelcome2){
-        if(event.type == SDL_MOUSEBUTTONUP){
-            int _x = event.button.x;
-            int _y = event.button.y;
-            if (600 <= _x && _x <= 600+240 && 550 <= _y && _y <= 550+125){
-                is_on_menu_delaying_stage = 1;
+    switch(cur_rendering_pic){
+        case istart1:
+            if (588 <= _x && _x <= 588+222 && 600 <= _y && _y <= 600+73) cur_rendering_pic = istart2;
+            else{
+                if(853 <= _x && _x <= 853+100 && 585 <= _y && _y <= 585+100 && event.type == SDL_MOUSEBUTTONDOWN){
+                    running = 0;
+                }
             }
-            else curently_rendering_pic = iWelcome;
-        }
+            break;
+        case istart2:
+            if ( !(588 <= _x && _x <= 588+222 && 600 <= _y && _y <= 600+73))  cur_rendering_pic = istart1;
+            else{
+                if(event.type == SDL_MOUSEBUTTONDOWN){
+                    cur_rendering_pic = ioption;
+                    sounds[i_button].play_chunk();
+                }
+            }
+            break;
+        case ioption:
+            if (555 <= _x && _x <= 555+250 && 172 <= _y && _y <= 272) cur_rendering_pic = ioption1;
+            else if(555 <= _x && _x <= 555+250 && 300 <= _y && _y <= 400) cur_rendering_pic = ioption2;
+            else if(555 <= _x && _x <= 555+250 && 440 <= _y && _y <= 540) cur_rendering_pic = ioption3;
+            break;
+        case ioption1:
+            if(550 <= _x && _x <= 550+260 && 165 <= _y && _y <= 165+110){
+                if(event.type == SDL_MOUSEBUTTONDOWN){
+                    menu_stage = 0;
+                    solo_game_stage = 1;
+                    tank_need_create = 1;
+
+                    sounds[i_button].play_chunk();
+                }
+            }
+            else cur_rendering_pic = ioption;
+            break;
+        case ioption2:
+            if(550 <= _x && _x <= 550+260 && 300 <= _y && _y <= 300+110){
+                 if(event.type == SDL_MOUSEBUTTONDOWN){
+                    sounds[i_button].play_chunk();
+                    menu_stage = 0;
+                    play_with_bot_stage = 1;
+                 }
+            }
+            else cur_rendering_pic = ioption;
+            break;
+        case ioption3:
+            if(550 <= _x && _x <= 550+260 && 435 <= _y && _y <= 435+110){
+                 if(event.type == SDL_MOUSEBUTTONDOWN){
+                    //menu_stage = 0;
+                    cur_rendering_pic = istart1;
+                    sounds[i_button].play_chunk();
+                 }
+            }
+            else cur_rendering_pic = ioption;
+            break;
     }
+
     return ;
 }
 
-void menu :: menu_render(){
-    if(is_on_menu_appearing_stage) pics[curently_rendering_pic].render();
+void menu :: menu_render(bool won){
+    if(won) pics[i_win].render();
+    pics[cur_rendering_pic].render();
     return ;
 }

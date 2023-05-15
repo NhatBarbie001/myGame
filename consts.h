@@ -3,11 +3,12 @@
 
 #include "Libs.h"
 #include "Texture.h"
+#include "soundManager.h"
 
-extern LTexture pics[20];
-
-extern SDL_Rect Sprites[20];
-
+extern LTexture pics[50];
+extern SDL_Rect Sprites[50];
+extern Lsound sounds[50];
+extern SDL_Rect empty_sprite;
 
 extern SDL_Rect Walls[20];
 extern int tot_wall;
@@ -25,7 +26,7 @@ class bullets{
         int count_frames;
         bool is_counted;
 };
-enum indices_tank{
+enum indices_{
     ibullet,   /// index of ..
     iblue_1 ,
     igun_blue_1,
@@ -37,16 +38,41 @@ enum indices_tank{
     ired_2,
     igun_red_2,
 
-    iWelcome,
-    iWelcome2,
-
     ibg,
-    igameover,
-
     ieffects_bullet,
 
     iblood,
+
+    istart1,
+    istart2,
+    ioption,
+    ioption1,
+    ioption2,
+    ioption3,
+
+    i_gameover1,
+    i_gameover2,
+    i_gameover3,
+
+
+    i_bg2,
+    i_effectshoot1,
+    i_effectshoot2,
+    i_surr,
+    i_surr_flag,
+    i_win,
     tot_pics
+};
+enum indices_sound{
+    i_button,
+    i_solo,
+    i_boss,
+    i_gameover,
+    i_shoot,
+    i_moving_sound,
+    i_explode,
+    i_surrender,
+    tot_sound
 };
 
 #endif //

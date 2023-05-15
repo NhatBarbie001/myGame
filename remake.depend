@@ -1,0 +1,397 @@
+# depslib dependency file v1.0
+1683773284 source:c:\users\dmx\desktop\remake\remake\global_variables.cpp
+	"Global_variables.h"
+
+1683773261 c:\users\dmx\desktop\remake\remake\global_variables.h
+	"Libs.h"
+
+1682436321 c:\users\dmx\desktop\remake\remake\libs.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<stdio.h>
+	<string>
+	<iostream>
+	<vector>
+	<iostream>
+	<fstream>
+	<iomanip>
+	<sstream>
+	<assert.h>
+	<algorithm>
+	<math.h>
+	<string.h>
+	<limits.h>
+	<numeric>
+	<chrono>
+	<random>
+	<functional>
+	<tuple>
+	<queue>
+	<stack>
+	<map>
+	<set>
+	<array>
+	<bitset>
+	<unordered_map>
+
+1682238063 source:c:\users\dmx\desktop\remake\remake\texture.cpp
+	"Texture.h"
+
+1683773682 c:\users\dmx\desktop\remake\remake\texture.h
+	"Libs.h"
+	"Global_variables.h"
+
+1682250654 source:c:\users\dmx\desktop\remake\remake\main.cpp
+	"game.h"
+
+1684162596 c:\users\dmx\desktop\remake\remake\game.h
+	"Menu.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+	"consts.h"
+	"Tank.h"
+	"menu_gameover1.h"
+	"loadMedia.h"
+	"soundManager.h"
+	"boss.h"
+
+1683891480 c:\users\dmx\desktop\remake\remake\window.h
+	"Libs.h"
+	"Global_variables.h"
+	"Texture.h"
+	"consts.h"
+
+1684161520 c:\users\dmx\desktop\remake\remake\consts.h
+	"Libs.h"
+	"Texture.h"
+	"soundManager.h"
+
+1683891492 source:c:\users\dmx\desktop\remake\remake\window.cpp
+	"window.h"
+
+1684101489 source:c:\users\dmx\desktop\remake\remake\consts.cpp
+	"Consts.h"
+
+1684164787 c:\users\dmx\desktop\remake\remake\menu.h
+	"Global_variables.h"
+	"consts.h"
+	"Libs.h"
+
+1684174549 source:c:\users\dmx\desktop\remake\remake\menu.cpp
+	"Menu.h"
+
+1684174231 source:c:\users\dmx\desktop\remake\remake\game.cpp
+	"Game.h"
+
+1684096948 c:\users\dmx\desktop\remake\remake\tank.h
+	"consts.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+
+1684137582 source:c:\users\dmx\desktop\remake\remake\tank.cpp
+	"Tank.h"
+
+1684165765 c:\users\dmx\desktop\remake\remake\menu_gameover1.h
+	"Libs.h"
+	"Global_variables.h"
+	"consts.h"
+	"Texture.h"
+
+1684165795 source:c:\users\dmx\desktop\remake\remake\menu_gameover1.cpp
+	"menu_gameover1.h"
+
+1683986038 c:\users\dmx\desktop\remake\remake\soundmanager.h
+	"Libs.h"
+
+1683891044 c:\users\dmx\desktop\remake\remake\loadmedia.h
+	"Libs.h"
+	"Global_variables.h"
+	"consts.h"
+	"Texture.h"
+	"soundManager.h"
+
+1683891371 source:c:\users\dmx\desktop\remake\remake\loadmedia.cpp
+	"loadMedia.h"
+
+1683985994 source:c:\users\dmx\desktop\remake\remake\soundmanager.cpp
+	"soundManager.h"
+
+1684173941 source:c:\users\dmx\desktop\remake\remake\boss.cpp
+	"boss.h"
+
+1684167105 c:\users\dmx\desktop\remake\remake\boss.h
+	"consts.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+
+1684173941 source:c:\users\dmx\desktop\remake\boss.cpp
+	"boss.h"
+
+1684167105 c:\users\dmx\desktop\remake\boss.h
+	"consts.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+
+1684161520 c:\users\dmx\desktop\remake\consts.h
+	"Libs.h"
+	"Texture.h"
+	"soundManager.h"
+
+1682436321 c:\users\dmx\desktop\remake\libs.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<stdio.h>
+	<string>
+	<iostream>
+	<vector>
+	<iostream>
+	<fstream>
+	<iomanip>
+	<sstream>
+	<assert.h>
+	<algorithm>
+	<math.h>
+	<string.h>
+	<limits.h>
+	<numeric>
+	<chrono>
+	<random>
+	<functional>
+	<tuple>
+	<queue>
+	<stack>
+	<map>
+	<set>
+	<array>
+	<bitset>
+	<unordered_map>
+
+1683773682 c:\users\dmx\desktop\remake\texture.h
+	"Libs.h"
+	"Global_variables.h"
+
+1683773261 c:\users\dmx\desktop\remake\global_variables.h
+	"Libs.h"
+
+1683986038 c:\users\dmx\desktop\remake\soundmanager.h
+	"Libs.h"
+
+1683891480 c:\users\dmx\desktop\remake\window.h
+	"Libs.h"
+	"Global_variables.h"
+	"Texture.h"
+	"consts.h"
+
+1684101489 source:c:\users\dmx\desktop\remake\consts.cpp
+	"Consts.h"
+
+1684176136 source:c:\users\dmx\desktop\remake\game.cpp
+	"Game.h"
+
+1684162596 c:\users\dmx\desktop\remake\game.h
+	"Menu.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+	"consts.h"
+	"Tank.h"
+	"menu_gameover1.h"
+	"loadMedia.h"
+	"soundManager.h"
+	"boss.h"
+
+1684176091 c:\users\dmx\desktop\remake\menu.h
+	"Global_variables.h"
+	"consts.h"
+	"Libs.h"
+
+1684096948 c:\users\dmx\desktop\remake\tank.h
+	"consts.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+
+1684165765 c:\users\dmx\desktop\remake\menu_gameover1.h
+	"Libs.h"
+	"Global_variables.h"
+	"consts.h"
+	"Texture.h"
+
+1683891044 c:\users\dmx\desktop\remake\loadmedia.h
+	"Libs.h"
+	"Global_variables.h"
+	"consts.h"
+	"Texture.h"
+	"soundManager.h"
+
+1683773284 source:c:\users\dmx\desktop\remake\global_variables.cpp
+	"Global_variables.h"
+
+1683891371 source:c:\users\dmx\desktop\remake\loadmedia.cpp
+	"loadMedia.h"
+
+1682250654 source:c:\users\dmx\desktop\remake\main.cpp
+	"game.h"
+
+1684176106 source:c:\users\dmx\desktop\remake\menu.cpp
+	"Menu.h"
+
+1684165795 source:c:\users\dmx\desktop\remake\menu_gameover1.cpp
+	"menu_gameover1.h"
+
+1683985994 source:c:\users\dmx\desktop\remake\soundmanager.cpp
+	"soundManager.h"
+
+1684137582 source:c:\users\dmx\desktop\remake\tank.cpp
+	"Tank.h"
+
+1682238063 source:c:\users\dmx\desktop\remake\texture.cpp
+	"Texture.h"
+
+1683891492 source:c:\users\dmx\desktop\remake\window.cpp
+	"window.h"
+
+1684173941 source:c:\users\dmx\desktop\ngu\boss.cpp
+	"boss.h"
+
+1684167105 c:\users\dmx\desktop\ngu\boss.h
+	"consts.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+
+1684161520 c:\users\dmx\desktop\ngu\consts.h
+	"Libs.h"
+	"Texture.h"
+	"soundManager.h"
+
+1682436321 c:\users\dmx\desktop\ngu\libs.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<stdio.h>
+	<string>
+	<iostream>
+	<vector>
+	<iostream>
+	<fstream>
+	<iomanip>
+	<sstream>
+	<assert.h>
+	<algorithm>
+	<math.h>
+	<string.h>
+	<limits.h>
+	<numeric>
+	<chrono>
+	<random>
+	<functional>
+	<tuple>
+	<queue>
+	<stack>
+	<map>
+	<set>
+	<array>
+	<bitset>
+	<unordered_map>
+
+1683773682 c:\users\dmx\desktop\ngu\texture.h
+	"Libs.h"
+	"Global_variables.h"
+
+1683773261 c:\users\dmx\desktop\ngu\global_variables.h
+	"Libs.h"
+
+1683986038 c:\users\dmx\desktop\ngu\soundmanager.h
+	"Libs.h"
+
+1683891480 c:\users\dmx\desktop\ngu\window.h
+	"Libs.h"
+	"Global_variables.h"
+	"Texture.h"
+	"consts.h"
+
+1684101489 source:c:\users\dmx\desktop\ngu\consts.cpp
+	"Consts.h"
+
+1684176136 source:c:\users\dmx\desktop\ngu\game.cpp
+	"Game.h"
+
+1684162596 c:\users\dmx\desktop\ngu\game.h
+	"Menu.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+	"consts.h"
+	"Tank.h"
+	"menu_gameover1.h"
+	"loadMedia.h"
+	"soundManager.h"
+	"boss.h"
+
+1684176091 c:\users\dmx\desktop\ngu\menu.h
+	"Global_variables.h"
+	"consts.h"
+	"Libs.h"
+
+1684096948 c:\users\dmx\desktop\ngu\tank.h
+	"consts.h"
+	"Global_variables.h"
+	"Libs.h"
+	"Texture.h"
+	"window.h"
+
+1684165765 c:\users\dmx\desktop\ngu\menu_gameover1.h
+	"Libs.h"
+	"Global_variables.h"
+	"consts.h"
+	"Texture.h"
+
+1683891044 c:\users\dmx\desktop\ngu\loadmedia.h
+	"Libs.h"
+	"Global_variables.h"
+	"consts.h"
+	"Texture.h"
+	"soundManager.h"
+
+1683773284 source:c:\users\dmx\desktop\ngu\global_variables.cpp
+	"Global_variables.h"
+
+1683891371 source:c:\users\dmx\desktop\ngu\loadmedia.cpp
+	"loadMedia.h"
+
+1682250654 source:c:\users\dmx\desktop\ngu\main.cpp
+	"game.h"
+
+1684176106 source:c:\users\dmx\desktop\ngu\menu.cpp
+	"Menu.h"
+
+1684165795 source:c:\users\dmx\desktop\ngu\menu_gameover1.cpp
+	"menu_gameover1.h"
+
+1683985994 source:c:\users\dmx\desktop\ngu\soundmanager.cpp
+	"soundManager.h"
+
+1684137582 source:c:\users\dmx\desktop\ngu\tank.cpp
+	"Tank.h"
+
+1682238063 source:c:\users\dmx\desktop\ngu\texture.cpp
+	"Texture.h"
+
+1683891492 source:c:\users\dmx\desktop\ngu\window.cpp
+	"window.h"
+

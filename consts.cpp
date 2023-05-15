@@ -1,41 +1,46 @@
 #include "Consts.h"
 
-LTexture pics[20];
-SDL_Rect Sprites[20];
+LTexture pics[50];
+Lsound sounds[50];
+SDL_Rect Sprites[50];
 SDL_Rect Walls[20];
+SDL_Rect empty_sprite;
+
 int tot_wall;
 void initSprite_Wall(){
+    empty_sprite = {0, 0, 0, 0};
     Sprites[0].x = Sprites[0].y = 0;
     Sprites[0].w = Sprites[0].h = 128;
-    for(int i = 1; i <= 10; ++i){
+    for(int i = 1; i <= 20; ++i){
         Sprites[i] = Sprites[i-1];
         Sprites[i].x += 128;
     }
-   // cout<<Sprites[1].x <<' '<<Sprites[1].y <<' '<<Sprites[1].w <<' '<<Sprites[1].h <<endl;
-    Walls[0].x = 297;
-    Walls[0].y = 177;
-    Walls[0].w = 212;
-    Walls[0].h = 22;
+    Walls[0].x = 205;
+    Walls[0].y = 116;
+    Walls[0].w = 80;
+    Walls[0].h = 80;
 
-    Walls[1].x = 419;
-    Walls[1].y = 357;
-    Walls[1].w = 80;
-    Walls[1].h = 80;
+    Walls[3].x = 1024;
+    Walls[3].y = 113;
+    Walls[3].w = 85;
+    Walls[3].h = 85;
 
-    Walls[2].x = 687;
-    Walls[2].y = 326;
-    Walls[2].w = 84;
-    Walls[2].h = 25;
+    Walls[1].x = 621;
+    Walls[1].y = 247;
+    Walls[1].w = 121;
+    Walls[1].h = 46;
 
-    Walls[3].x = 796;
-    Walls[3].y = 531;
-    Walls[3].w = 100;
-    Walls[3].h = 70;
+    Walls[2].x = 602;
+    Walls[2].y =  300;
+    Walls[2].w = 135;
+    Walls[2].h = 70;
 
-    Walls[4].x = 690;
-    Walls[4].y = 580;
-    Walls[4].w = 110;
-    Walls[4].h = 25;
+    Walls[4].x = 627;
+    Walls[4].y = 484;
+    Walls[4].w = 100;
+    Walls[4].h = 78;
+
+
     tot_wall = 5;
 
     return ;

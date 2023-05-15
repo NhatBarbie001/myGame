@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="remake" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/remake" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/remake" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="Global_variables.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Global_variables.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Libs.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Menu.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Menu.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Tank.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Tank.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Texture.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="Texture.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="boss.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="boss.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="consts.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="consts.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="game.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="game.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="loadMedia.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="loadMedia.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="main.cpp" />
+		<Unit filename="menu_gameover1.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="menu_gameover1.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="soundManager.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="soundManager.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="window.cpp">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="window.h">
+			<Option target="Debug" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

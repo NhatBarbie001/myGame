@@ -2,7 +2,7 @@
 
 bool window :: window_init(){
     bool success = true;
-	if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+	if(SDL_Init( SDL_INIT_VIDEO | SDL_INIT_AUDIO ) < 0)
 	{
 		printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
 		success = false;
@@ -38,28 +38,17 @@ bool window :: window_init(){
 					printf( "SDL_image could not initialize! SDL_image Error: %s\n", IMG_GetError() );
 					success = false;
 				}
+				if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+				{
+					printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+					success = false;
+				}
 			}
 		}
 	}
     return success;
 }
-bool  window :: window_loadFromFile(string path, int id){
-    SDL_Texture *newTexture = NULL;
-    SDL_Surface *loadedSurface = IMG_Load(path.c_str());
-    if (loadedSurface == NULL)
-        printf("Failed to load %s img, error: %s", path.c_str(), IMG_GetError());
-    else
-    {
-        SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 255, 255));
-        newTexture = SDL_CreateTextureFromSurface(gRenderer, loadedSurface);
-        if (newTexture == NULL) printf("Failed to create texture %s, error: %s\n", path.c_str(), SDL_GetError());
-        else{
-            pics[id].set_mTextureWH(newTexture, (loadedSurface ->w), loadedSurface->h);
-        }
-        SDL_FreeSurface(loadedSurface);
-    }
-    return newTexture != NULL;
-}
+
 void window :: window_clearRenderer()
 {
     SDL_SetRenderDrawColor(gRenderer, 255, 255, 255, 255);

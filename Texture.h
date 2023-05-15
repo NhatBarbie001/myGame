@@ -2,7 +2,7 @@
 #define    TEXTURE_H
 
 #include "Libs.h"
-#include "Globalv.h"
+#include "Global_variables.h"
 
 class LTexture
 {

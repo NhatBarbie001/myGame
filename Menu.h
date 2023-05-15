@@ -2,28 +2,18 @@
 #ifndef     MENU_H
 #define     MENU_H
 
-#include "Globalv.h"
+#include "Global_variables.h"
 #include "consts.h"
 #include "Libs.h"
 class menu{
     public:
         menu();
-        void menu_set_pics(SDL_Texture *Texture);
-
-        void menu_render();
-        void menu_handle_events(SDL_Event event);
-        void menu_close();
-        void menu_pre_render();
-        bool _is_on_menu_appearing_stage();
-
-        void set_delaying_status();
-        bool _is_on_menu_delaying_stage();
+        void menu_handle_events(SDL_Event event, bool &menu_stage, bool &solo_game_stage, bool &tank_need_create, bool &play_with_bot_stage, bool &running);
+       // void menu_handle_events2(SDL_Event event, bool &solo_game_stage);
+        void menu_render(bool won = 0);
+        void set_pic(indices_ id);
     private:
-        bool is_on_menu_appearing_stage;
-        int  count_frames;
-
-        bool is_on_menu_delaying_stage;
-        int curently_rendering_pic;
+        indices_ cur_rendering_pic;
 };
 
 #endif //

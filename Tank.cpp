@@ -6,12 +6,18 @@ tank :: tank(){
     vbody_deg = vgun_deg = 0;
     mtank_vel= 0;
     mgun_deg = mbody_deg = 0;
+
     is_created = 0;
+
     retrograded = 0;
     count_frames_gun = 0;
     done_shoot = 1;
     blood_level = 0;
+
     is_destroyed = 0;
+    last_shoot = 0;
+
+    channel_mov = -5;
 }
 void tank :: tank_create(double PosX, double PosY, int body_id, int gun_id){
     mPosX = PosX;
@@ -25,17 +31,47 @@ void tank :: tank_create(double PosX, double PosY, int body_id, int gun_id){
     mCollider.h = pics[body_id].getHeight();
     mCollider.w = pics[body_id].getWidth();
     is_created = 1;
+
+    vbody_deg = vgun_deg = 0;
+    mtank_vel= 0;
+    mgun_deg = mbody_deg = 0;
+
+    //is_created = 0;
+
+    retrograded = 0;
+    count_frames_gun = 0;
+    done_shoot = 1;
+    blood_level = 0;
+
+    is_destroyed = 0;
+    list_flying_bullet.clear();
+    list_noing_bullet.clear();
+    channel_mov = -5;
     return ;
 }
 bool tank :: _is_created(){
     return is_created;
 }
-
 bool tank :: _is_destroyed(){
     return is_destroyed;
 }
+void tank :: tank_reset(){
+    is_destroyed = 0;
+
+    return ;
+}
+void tank :: set_channel(int tmp){
+    channel_mov = tmp;
+}
+int tank :: get_channel(){
+    return channel_mov;
+}
 vector<bullets>* tank :: get_list_flying_bullet(){
     return &list_flying_bullet;
+}
+
+bool tank :: is_moving(){
+    return mtank_vel > 0;
 }
 ///---------------------
 void tank :: tank_handle_event(SDL_Event e, bool flag){
@@ -59,11 +95,18 @@ void tank :: tank_handle_event(SDL_Event e, bool flag){
                 case SDLK_KP_1: vgun_deg -= gun_vel_deg; break;
                 case SDLK_KP_2:
                     {
+                        Uint32 cur_time = SDL_GetTicks();
+                        if(cur_time-last_shoot < 1000) break;
+
+                        last_shoot = cur_time;
                         done_shoot = 0;
                         count_frames_gun = 0;
 
                         bullets tmp(mPosX, mPosY, mgun_deg);
                         list_flying_bullet.push_back(tmp);
+
+                        sounds[i_shoot].play_chunk();
+
                         break;
                     }
                 case SDLK_KP_3: vgun_deg += gun_vel_deg; break;
@@ -84,11 +127,18 @@ void tank :: tank_handle_event(SDL_Event e, bool flag){
                 case SDLK_g: vgun_deg -= gun_vel_deg; break;
                 case SDLK_h:
                     {
+                        Uint32 cur_time = SDL_GetTicks();
+                        if(cur_time-last_shoot < 1000) break;
+
+                        last_shoot = cur_time;
                         done_shoot = 0;
                         count_frames_gun = 0;
 
                         bullets tmp(mPosX, mPosY, mgun_deg);
                         list_flying_bullet.push_back(tmp);
+
+                        sounds[i_shoot].play_chunk();
+
                         break;
                     }
                 case SDLK_j: vgun_deg += gun_vel_deg; break;
@@ -138,7 +188,7 @@ SDL_Rect tank :: get_mCollider(){
     return mCollider;
 }
 ///---------------------
-void tank :: tank_move(SDL_Rect other_mCollision){
+void tank :: tank_move( SDL_Rect other_mCollision, SDL_Rect other_2, bool flag){
 
 
     SDL_Rect tmp;
@@ -189,11 +239,12 @@ void tank :: tank_move(SDL_Rect other_mCollision){
         }
     }
 
-
-    other_mCollision.x += 39;
-    other_mCollision.y += 32;
-    other_mCollision.w = 49;
-    other_mCollision.h = 65;
+    if(flag){
+        other_mCollision.x += 39;
+        other_mCollision.y += 32;
+        other_mCollision.w = 49;
+        other_mCollision.h = 65;
+    }
 
 
     pair<double, double> bullet_rect;
@@ -214,6 +265,10 @@ void tank :: tank_move(SDL_Rect other_mCollision){
         tmp_rect.h = 32;
 
         is_ok &= checkCollision(other_mCollision, tmp_rect);
+        is_ok &= checkCollision(other_2, tmp_rect);
+
+        if(!checkCollision(other_mCollision, tmp_rect))  sounds[i_explode].play_chunk();
+        if(!checkCollision(other_2, tmp_rect))  sounds[i_explode].play_chunk();
         for(int i = 0; i < tot_wall; ++i){
             is_ok &= checkCollision(tmp_rect, Walls[i]);
         }
@@ -252,11 +307,6 @@ void tank :: check_hited( vector<bullets> *other_list_flying_bullet){
         tmp.w = 49;
         tmp.h = 65;
 
-        /*SDL_SetRenderDrawColor( gRenderer, 255, 100, 100, 0xFF );
-        SDL_RenderDrawRect( gRenderer, &tmp);
-        SDL_RenderDrawRect( gRenderer, &tmp_rect);
-        cout<<checkCollision(tmp_rect, tmp) <<endl;
-        */
         if(!checkCollision(tmp_rect, tmp)){
             if(++blood_level > 6) is_destroyed = 1;
             it.is_counted = 1;
@@ -269,6 +319,7 @@ void tank :: check_hited( vector<bullets> *other_list_flying_bullet){
 ///---------------------
 
 void tank :: tank_render(){
+    if(is_destroyed) pics[i_surr_flag].render(mPosX, mPosY);
     pics[body_index].render( (int)mPosX, (int)mPosY, NULL, mbody_deg);
     pics[iblood].render( (int)mPosX, (int)mPosY, &Sprites[blood_level]);
     if(done_shoot){
@@ -281,6 +332,7 @@ void tank :: tank_render(){
         pics[ibullet].render((it).x, (it).y, NULL, (it).deg);
     }
     for(bullets it : list_noing_bullet)  pics[ieffects_bullet].render((it).x, (it).y, &Sprites[(it).count_frames/5], (it).deg);
+    if(is_destroyed) pics[i_surr_flag].render(mPosX, mPosY);
     return ;
 }
 
