@@ -23,6 +23,11 @@ bool game :: is_running(){
 
 bool game :: loadMedia(){
     bool success = true;
+    if(!loadPicFromFile("menu_images/start3.png", istart3))
+    {
+        printf("Failed to load blue image start3 texture\n");
+        success = false;
+    }
     if(!loadPicFromFile("menu_images/start2.png", istart1))
     {
         printf("Failed to load blue image start1 texture\n");

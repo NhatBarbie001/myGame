@@ -16,9 +16,7 @@ void menu :: menu_handle_events(SDL_Event event, bool &menu_stage, bool &solo_ga
         case istart1:
             if (588 <= _x && _x <= 588+222 && 600 <= _y && _y <= 600+73) cur_rendering_pic = istart2;
             else{
-                if(853 <= _x && _x <= 853+100 && 585 <= _y && _y <= 585+100 && event.type == SDL_MOUSEBUTTONDOWN){
-                    running = 0;
-                }
+                if(853 <= _x && _x <= 853+100 && 585 <= _y && _y <= 585+100 ) cur_rendering_pic = istart3;
             }
             break;
         case istart2:
@@ -29,6 +27,14 @@ void menu :: menu_handle_events(SDL_Event event, bool &menu_stage, bool &solo_ga
                     sounds[i_button].play_chunk();
                 }
             }
+            break;
+        case istart3:
+            if ( 853 <= _x && _x <= 853+100 && 585 <= _y && _y <= 585+100){
+                if(event.type == SDL_MOUSEBUTTONDOWN) running = 0;
+               // sounds[i_button].play_chunk();
+               // else cur_rendering_pic = istart1;
+            }
+            else cur_rendering_pic = istart1;
             break;
         case ioption:
             if (555 <= _x && _x <= 555+250 && 172 <= _y && _y <= 272) cur_rendering_pic = ioption1;
@@ -75,5 +81,7 @@ void menu :: menu_handle_events(SDL_Event event, bool &menu_stage, bool &solo_ga
 void menu :: menu_render(bool won){
     if(won) pics[i_win].render();
     pics[cur_rendering_pic].render();
+    //pics[istart3].render();
+    //cout<<istart3 <<endl;
     return ;
 }
