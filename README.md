@@ -6,6 +6,8 @@
 
 Tank war là một game 2D RPG được viết bằng ngôn ngữ lập trình C++ và sử dụng SDL 2 để đồ họa.
 Game có hai chế độ chơi, hai người chơi hoặc là đánh với máy. Mỗi người chơi hoặc bot sẽ có một thanh máu 7 vạch, trúng đạn một lần sẽ bị mất một vạch máu, cho đến khi hết máu. 
+## tải game 
+
 ## Chi tiết về game
 ### Control
 ####  trong chế độ solo và chơi với máy, xe 1:
